@@ -41,7 +41,7 @@ function Listado() {
                   <h5 className="card-title">{oneMovie.title}</h5>
                   <p className="card-text">{oneMovie.overview}</p>
                   <Link
-                    to={`/detalle?moveID=${oneMovie.id}`}
+                    to={`/detalle?movieID=${oneMovie.id}`}
                     className="btn btn-primary"
                   >
                     View detail
