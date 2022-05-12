@@ -1,23 +1,31 @@
+//dependency
 import { Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+//styles
+import "../css/bootstrap.min.css";
 
 function Detalle() {
   let token = sessionStorage.getItem("token");
+  //obitene el URL de la pagina en la que estas.
   let query = new URLSearchParams(window.location.search);
+  //obtiene el ID en el URL.
   let movieID = query.get("movieID");
 
+  //le damos un valor nulo pq asi esperamos q cargue primero y despues la pagina
   const [movie, setMovie] = useState(null);
+
   useEffect(() => {
-    console.log(movieID);
+    //obtenemos la info de la pelicula desde la ID de la misma.
     let URLmovieID = `https://api.themoviedb.org/3/movie/${movieID}?api_key=f7a73bd84a681c9e825abf6e596b5fdb&language=en-US`;
     axios
       .get(URLmovieID)
       .then((res) => {
         let movieData = res.data;
+        //metemos la info en el estado
         setMovie(movieData);
-        console.log(movieData);
       })
+      //captura algun error
       .catch((error) => {
         console.log(error);
       });
@@ -25,7 +33,11 @@ function Detalle() {
 
   return (
     <>
-      {!token && <Navigate to="/" />}
+      {
+        //si no encuentra el token (osea, si no está loggeado) lo redirige hacia el "Login"
+        !token && <Navigate to="/" />
+        //al contrario, muestra lo de abajo.
+      }
       <div className="row">
         {movie && (
           <>

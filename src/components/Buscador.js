@@ -1,6 +1,22 @@
+//dependecy
+import swtAlert from "@sweetalert/with-react";
+
+//styles
+import "../css/bootstrap.min.css";
+
 function Buscador() {
+  const submitHundler = (e) => {
+    e.preventDefault();
+
+    const keyboard = e.currentTarget.keyword.value;
+
+    if (keyboard.length === 0) {
+      swtAlert(<h2>Error</h2>);
+    }
+  };
+
   return (
-    <form className="d-flex align-item-center">
+    <form className="d-flex align-item-center" onSubmit={submitHundler}>
       <label className="form-label mx-2">
         <input type="text" name="keyword"></input>
       </label>
