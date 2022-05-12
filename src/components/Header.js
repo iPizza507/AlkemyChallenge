@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import Buscador from "./Buscador";
 function Header(params) {
   return (
     <header>
@@ -16,6 +16,7 @@ function Header(params) {
             </Link>
           </li>
         </ul>
+        <Buscador></Buscador>
       </nav>
     </header>
   );
