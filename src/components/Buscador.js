@@ -1,17 +1,21 @@
 //dependecy
 import swtAlert from "@sweetalert/with-react";
-
-//styles
-import "../css/bootstrap.min.css";
+import { useNavigate } from "react-router-dom";
 
 function Buscador() {
+  const history = useNavigate();
+
   const submitHundler = (e) => {
     e.preventDefault();
-
     const keyboard = e.currentTarget.keyword.value;
 
     if (keyboard.length === 0) {
       swtAlert(<h2>Error</h2>);
+    } else if (keyboard.length < 4) {
+      swtAlert(<h2>Error, write more</h2>);
+    } else {
+      e.currentTarget.keyword.value = "";
+      history(`/resultados?keyword=${keyboard}`);
     }
   };
 

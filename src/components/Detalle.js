@@ -2,8 +2,6 @@
 import { Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-//styles
-import "../css/bootstrap.min.css";
 
 function Detalle() {
   let token = sessionStorage.getItem("token");

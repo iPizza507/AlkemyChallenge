@@ -1,44 +1,50 @@
 //dependency
 import { useEffect, useState } from "react";
-import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
 import swtAlert from "@sweetalert/with-react";
+import { useNavigate, Link } from "react-router-dom";
 
-function Listado(props) {
-  //las props empiezan:
+function Resultados() {
+  //keyword
+  let query = new URLSearchParams(window.location.search);
+  let keyword = query.get("keyword");
+  //State
+  const [movieResult, setMovieResult] = useState([]);
+  //navegation
+  const history = useNavigate();
 
-  //terminan
-  let token = sessionStorage.getItem("token");
-  const endPoint =
-    "https://api.themoviedb.org/3/discover/movie?api_key=f7a73bd84a681c9e825abf6e596b5fdb&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate";
-  const [movieList, setmovieList] = useState([]);
-  //const algo = `https://api.themoviedb.org/3/movie/${oneMovie.poster_path}?api_key=f7a73bd84a681c9e825abf6e596b5fdb&language=en-US`;
   useEffect(() => {
+    const endPoint = `https://api.themoviedb.org/3/search/movie?api_key=f7a73bd84a681c9e825abf6e596b5fdb&language=en-US&page=1&include_adult=false&query=${keyword}`;
     axios
       .get(endPoint)
       .then((res) => {
-        setmovieList(res.data.results);
+        console.log(res);
+        const moviesArray = res.data.results;
+        setMovieResult(moviesArray);
+        if (moviesArray.length === 0) {
+          swtAlert(<h2>Your search is not found</h2>);
+        }
+        history(`/resultados?keyword=${keyword}`);
       })
       .catch((error) => {
-        swtAlert(<h2>Error!</h2>);
-        console.log(error);
+        swtAlert(<h2>{error}</h2>);
       });
-  }, [setmovieList]);
+  }, [keyword]);
 
   return (
     <>
-      {!token && <Navigate to="/" />}
+      {movieResult.length === 0 && <h1>Not results</h1>}
+      <h2>Search: {keyword}</h2>
       <div className="row ">
-        {movieList.map((oneMovie, i) => {
+        {movieResult.map((oneMovie, i) => {
           return (
-            <div className="col-2" key={i}>
+            <div className="col-4" key={i}>
               <div className="card">
                 <img
                   className="card-img-top"
                   src={`https://image.tmdb.org/t/p/w500/${oneMovie.poster_path}`}
                   alt={`img not found: ${oneMovie.title}`}
                 />
-                <button className="favorite-btn">🖤</button>
                 <div className="card-body">
                   <h5 className="card-title">{oneMovie.title}</h5>
                   <p className="card-text">{oneMovie.overview}</p>
@@ -57,4 +63,4 @@ function Listado(props) {
     </>
   );
 }
-export default Listado;
+export default Resultados;
