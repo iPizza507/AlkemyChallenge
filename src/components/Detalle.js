@@ -36,30 +36,33 @@ function Detalle() {
         !token && <Navigate to="/" />
         //al contrario, muestra lo de abajo.
       }
-      <div className="row">
-        {movie && (
-          <>
-            <div className="col-4">
-              <img
-                className="img-fluid"
-                src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                alt={`img not found: ${movie.title}`}
-              />
-            </div>
-            <div className="col-8">
-              <h1>Title: {movie.title}</h1>
-              <h2>Release date: {movie.release_date}</h2>
-              <h3>Review:</h3>
-              <p>{movie.overview}</p>
-              <h6>Rating: {movie.vote_average}</h6>
-              <ul>
-                {movie.genres.map((oneGenre) => {
-                  return <li key={oneGenre.id}>{oneGenre.name}</li>;
-                })}
-              </ul>
-            </div>
-          </>
-        )}
+      <div className="container mt-2 mb-2">
+        <div className="row">
+          {movie && (
+            <>
+              <div className="col-4">
+                <img
+                  className="img-fluid"
+                  src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                  alt={`img not found: ${movie.title}`}
+                />
+              </div>
+              <div className="col-8">
+                <h1>Title: {movie.title}</h1>
+                <h2>Release date: {movie.release_date}</h2>
+                <h3>Review:</h3>
+                <p>{movie.overview}</p>
+                <h4>Genre</h4>
+                <ul>
+                  {movie.genres.map((oneGenre) => {
+                    return <li key={oneGenre.id}>{oneGenre.name}</li>;
+                  })}
+                </ul>
+                <h6>Rating: {movie.vote_average}</h6>
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </>
   );

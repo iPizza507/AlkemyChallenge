@@ -1,10 +1,10 @@
 //dependecy
 import swtAlert from "@sweetalert/with-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 
 function Buscador() {
   const history = useNavigate();
-
+  let token = sessionStorage.getItem("token");
   const submitHundler = (e) => {
     e.preventDefault();
     const keyboard = e.currentTarget.keyword.value;
@@ -20,14 +20,17 @@ function Buscador() {
   };
 
   return (
-    <form className="d-flex align-item-center" onSubmit={submitHundler}>
-      <label className="form-label mb-0 mt-1">
-        <input type="text" name="keyword"></input>
-      </label>
-      <button className="btn btn-success mx-2" type="submit">
-        Search
-      </button>
-    </form>
+    <>
+      {!token && <Navigate to="/" />}
+      <form className="d-flex align-item-center" onSubmit={submitHundler}>
+        <label className="form-label mb-0 mt-1">
+          <input type="text" name="keyword"></input>
+        </label>
+        <button className="btn btn-success mx-2" type="submit">
+          Search
+        </button>
+      </form>
+    </>
   );
 }
 export default Buscador;

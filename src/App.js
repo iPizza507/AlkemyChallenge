@@ -32,7 +32,6 @@ function App() {
     const favMovies = localStorage.getItem("favs");
     //un nuevo array para guardar esos datos nuevos
     let tempMovieInFavs;
-
     //si no tengo nada en guardado
     if (favMovies === null) {
       //crear el array vacio..

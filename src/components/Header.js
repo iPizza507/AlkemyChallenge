@@ -1,9 +1,16 @@
 //dependency
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 //components
 import Buscador from "./Buscador";
 
 function Header(props) {
+  //obtengo el token para ver si esta loggeado, para poder cerrar la sesion desp
+  let token = sessionStorage.getItem("token");
+  const history = useNavigate();
+  const closeSession = () => {
+    sessionStorage.clear();
+    history("/");
+  };
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -37,6 +44,17 @@ function Header(props) {
           </ul>
         </div>
         <Buscador></Buscador>
+        {token && (
+          <>
+            <button
+              className="btn btn-success "
+              type="submit"
+              onClick={closeSession}
+            >
+              Log Out
+            </button>
+          </>
+        )}
       </nav>
     </header>
   );

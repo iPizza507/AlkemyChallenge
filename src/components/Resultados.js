@@ -34,31 +34,34 @@ function Resultados() {
   return (
     <>
       {movieResult.length === 0 && <h1>Not results</h1>}
-      <h2>Search: {keyword}</h2>
-      <div className="row ">
-        {movieResult.map((oneMovie, i) => {
-          return (
-            <div className="col-4" key={i}>
-              <div className="card">
-                <img
-                  className="card-img-top"
-                  src={`https://image.tmdb.org/t/p/w500/${oneMovie.poster_path}`}
-                  alt={`img not found: ${oneMovie.title}`}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{oneMovie.title}</h5>
-                  <p className="card-text">{oneMovie.overview}</p>
-                  <Link
-                    to={`/detalle?movieID=${oneMovie.id}`}
-                    className="btn btn-primary"
-                  >
-                    View detail
-                  </Link>
+
+      <div className="container">
+        <h2>Search... {keyword}</h2>
+        <div className="row align-items-start">
+          {movieResult.map((oneMovie, i) => {
+            return (
+              <div className="col-4 py-2 cardHover" key={i}>
+                <div className="card">
+                  <img
+                    className="card-img-top"
+                    src={`https://image.tmdb.org/t/p/w500/${oneMovie.poster_path}`}
+                    alt={`img not found: ${oneMovie.title}`}
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">{oneMovie.title}</h5>
+                    <p className="card-text">{oneMovie.overview}</p>
+                    <Link
+                      to={`/detalle?movieID=${oneMovie.id}`}
+                      className="btn btn-primary"
+                    >
+                      View detail
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </>
   );

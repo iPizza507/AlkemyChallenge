@@ -1,7 +1,7 @@
 function Footer() {
   return (
-    <footer className="container d-flex justify-item-center">
-      <p>Copyright Alekemy Challenge</p>
+    <footer className="d-flex align-item-center bg-dark">
+      <p className="text-light">Copyright Alekemy Challenge</p>
     </footer>
   );
 }

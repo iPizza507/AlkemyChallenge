@@ -26,38 +26,40 @@ function Listado(props) {
   return (
     <>
       {!token && <Navigate to="/" />}
-      <div className="row align-items-flex-start">
-        {movieList.map((oneMovie, i) => {
-          return (
-            <div className="col-3 py-2 cardHover" key={i}>
-              <div className="card">
-                <img
-                  className="card-img-top"
-                  src={`https://image.tmdb.org/t/p/w500/${oneMovie.poster_path}`}
-                  alt={`img not found: ${oneMovie.title}`}
-                />
-                <button
-                  className="favorite-btn"
-                  //aca le pasamos la prop para que ejecute la funcion
-                  onClick={props.addOrRemoveFromFavs}
-                  data-movie-id={oneMovie.id}
-                >
-                  🖤
-                </button>
-                <div className="card-body">
-                  <h5 className="card-title">{oneMovie.title}</h5>
-                  <p className="card-text">{oneMovie.overview}</p>
-                  <Link
-                    to={`/detalle?movieID=${oneMovie.id}`}
-                    className="btn btn-success"
+      <div className="container">
+        <div className=" row align-items-start">
+          {movieList.map((oneMovie, i) => {
+            return (
+              <div className="col-3 py-2 cardHover" key={i}>
+                <div className="card">
+                  <img
+                    className="card-img-top"
+                    src={`https://image.tmdb.org/t/p/w500/${oneMovie.poster_path}`}
+                    alt={`img not found: ${oneMovie.title}`}
+                  />
+                  <button
+                    className="favorite-btn estoesunaprueba"
+                    //aca le pasamos la prop para que ejecute la funcion
+                    onClick={props.addOrRemoveFromFavs}
+                    data-movie-id={oneMovie.id}
                   >
-                    View detail
-                  </Link>
+                    🖤
+                  </button>
+                  <div className="card-body">
+                    <h5 className="card-title">{oneMovie.title}</h5>
+                    <p className="card-text">{oneMovie.overview}</p>
+                    <Link
+                      to={`/detalle?movieID=${oneMovie.id}`}
+                      className="btn btn-success"
+                    >
+                      View detail
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </>
   );

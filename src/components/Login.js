@@ -42,18 +42,38 @@ function Login() {
   return (
     <>
       {token && <Navigate to="/listado" />}
-      <h2>Formulario de ingreso: </h2>
       <form onSubmit={submitHandler}>
-        <label>
-          <span>Email: </span> <br />
-          <input type="text" name="email"></input>
-        </label>
-        <br />
-        <label>
-          <span>Password: </span> <br />
-          <input type="password" name="password"></input>
-        </label>
-        <button type="submit">Ingresar</button>
+        <div className="container">
+          <h2>Login: </h2>
+          <div className="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input
+              type="email"
+              className="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+              name="email"
+            ></input>
+            <small id="emailHelp" className="form-text text-muted">
+              We'll never share your email with anyone else.
+            </small>
+          </div>
+          <div className="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input
+              type="password"
+              className="form-control"
+              id="exampleInputPassword1"
+              placeholder="Password"
+              name="password"
+            ></input>
+          </div>
+
+          <button type="submit" className="btn btn-success mt-2 mb-2">
+            Submit
+          </button>
+        </div>
       </form>
     </>
   );
