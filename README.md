@@ -19,8 +19,12 @@ You may also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-ALKEFLIX:
+### `Alkeflix`
+### `Login:`
 ![](src/img/Alkeflix1.jpg)
+### `Add to Favorites`
 ![](src/img/Alkeflix2.jpg)
+### `Error!`
 ![](src/img/Alkeflix3.jpg)
+### `More Info`
 ![](src/img/Alkeflix4.jpg)
