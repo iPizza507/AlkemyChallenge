@@ -12,3 +12,9 @@
     border: none;
     font-size: 13px;
 }
+.cardHover:hover{
+
+    box-shadow: #73caa1 1px 5px 15px;
+    border-radius: 5px;
+    background-color: #73caa1;
+}

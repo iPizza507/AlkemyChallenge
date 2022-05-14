@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer>
+    <footer className="container d-flex justify-item-center">
       <p>Copyright Alekemy Challenge</p>
     </footer>
   );

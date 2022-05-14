@@ -21,10 +21,10 @@ function Buscador() {
 
   return (
     <form className="d-flex align-item-center" onSubmit={submitHundler}>
-      <label className="form-label mx-2">
+      <label className="form-label mb-0 mt-1">
         <input type="text" name="keyword"></input>
       </label>
-      <button className="btn btn-succes ml-2" type="submit">
+      <button className="btn btn-success mx-2" type="submit">
         Search
       </button>
     </form>
