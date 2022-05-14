@@ -47,7 +47,7 @@ function Header(props) {
         {token && (
           <>
             <button
-              className="btn btn-success "
+              className="btn btn-success ml-2"
               type="submit"
               onClick={closeSession}
             >

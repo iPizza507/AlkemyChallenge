@@ -9,7 +9,9 @@ function Favorites(props) {
       <div className="container">
         <div className="row align-items-start">
           {!props.favorites.length && (
-            <div className="col-12 text-danger">Not Found favorites</div>
+            <div className="col-12 text-danger div-h1-danger">
+              <h1 className="m-3">SORRY! NOT FOUND FAVORITES :c</h1>
+            </div>
           )}
           {props.favorites.map((oneMovie, i) => {
             return (
