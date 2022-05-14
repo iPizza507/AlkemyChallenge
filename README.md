@@ -21,3 +21,6 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ALKEFLIX:
 ![](src/img/Alkeflix1.jpg)
+![](src/img/Alkeflix2.jpg)
+![](src/img/Alkeflix3.jpg)
+![](src/img/Alkeflix4.jpg)
