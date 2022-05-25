@@ -13,6 +13,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ### `Alkeflix`
 ### `Login:`
+User: challenge@alkemy.org
+pass: react
 ![](src/img/Alkeflix1.jpg)
 ### `Add to Favorites`
 ![](src/img/Alkeflix2.jpg)
