@@ -26,10 +26,10 @@ function Login() {
       swtAlert(<h2>credenciales inválidas</h2>);
       return;
     }
-    console.log("ready for sending form");
+    console.log("ready for sending form..");
     //es igual que el fetch pero mejor
     axios
-      .post("https://challenge-react.alkemy.org", { email, password })
+      .post("http://challenge-react.alkemy.org", { email, password })
       .then((res) => {
         swtAlert(<h2>Correct form</h2>);
         const tokenRes = res.data.token;
