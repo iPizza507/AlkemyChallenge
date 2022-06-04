@@ -6,6 +6,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 function Login() {
   let token = sessionStorage.getItem("token");
   const history = useNavigate();
+
   const submitHandler = (e) => {
     e.preventDefault();
     const regexEmail =
@@ -28,7 +29,7 @@ function Login() {
     console.log("ready for sending form");
     //es igual que el fetch pero mejor
     axios
-      .post("http://challenge-react.alkemy.org", { email, password })
+      .post("https://challenge-react.alkemy.org", { email, password })
       .then((res) => {
         swtAlert(<h2>Correct form</h2>);
         const tokenRes = res.data.token;
@@ -46,7 +47,7 @@ function Login() {
         <div className="container">
           <h2>Please, Login: </h2>
           <div className="form-group">
-            <label for="exampleInputEmail1">Email address</label>
+            <label for="">Email address</label>
             <input
               type="email"
               className="form-control"
@@ -60,7 +61,7 @@ function Login() {
             </small>
           </div>
           <div className="form-group">
-            <label for="exampleInputPassword1">Password</label>
+            <label for="">Password</label>
             <input
               type="password"
               className="form-control"
