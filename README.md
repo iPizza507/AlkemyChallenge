@@ -12,7 +12,7 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ### `Alkeflix`
-![](src/img/Ale.jpg)
+![](src/img/Alkeflix1.jpg)
 
 ### `Login:`
 Tenemos una validacion para loguearnos, con los siguientes datos..
