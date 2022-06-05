@@ -42,7 +42,7 @@ function Login() {
   };
   return (
     <>
-      {!token && <Navigate to="/listado" />}
+      {token && <Navigate to="/listado" />}
       <form onSubmit={submitHandler} id="formLogin">
         <div className="container">
           <h2>Please, Login: </h2>

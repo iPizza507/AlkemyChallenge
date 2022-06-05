@@ -9,7 +9,7 @@ function Buscador() {
     e.preventDefault();
     const keyboard = e.currentTarget.keyword.value;
 
-    if (keyboard.length === 0) {
+    if (keyboard.length === 0 || keyboard === "") {
       swtAlert(<h2>Error</h2>);
     } else if (keyboard.length < 4) {
       swtAlert(<h2>Error, write more</h2>);
