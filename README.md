@@ -36,5 +36,5 @@ Si no hay ninguna..
 ![](src/img/Alkeflix-Alkeflix-Error5.jpg)
 
 ### `More Info`
-Podemos indagar por más informacion en cada una de las peliculas
+Podemos indagar por más informacion en cada una de las peliculas..
 ![](src/img/AlkeflixMoreInfo.jpg)
